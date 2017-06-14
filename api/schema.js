@@ -45,6 +45,6 @@ type Subscription {
 `;
 
 export default makeExecutableSchema({
-  typeDefs: schema,
-  resolvers,
+	typeDefs: schema,
+	resolvers,
 });

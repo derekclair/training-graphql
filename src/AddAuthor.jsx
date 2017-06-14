@@ -1,45 +1,38 @@
 import React, { Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 
 class AddPost extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.onSubmit = this._onSubmit.bind(this);
-  }
-  
-  _onSubmit(e) {
-    e.preventDefault();
-    
-    const firstName = findDOMNode(this.refs.firstName).value.trim();
-    const lastName = findDOMNode(this.refs.lastName).value.trim();
-            
-    this.props.setUser(firstName, lastName);
-    this.props.addAuthor(firstName, lastName);
-  }
-  
-  render() {
-    return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          ref="firstName"
-          type="text"
-          placeholder="First"
-        />
-        <input
-          ref="lastName"
-          type="text"
-          placeholder="Last"
-        />
-        <input
-          type="submit"
-          value="Join the Discussion"
-        />
-      </form>
-    );
-  }
+	render() {
+		return (
+			<form onSubmit={this.onSubmit}>
+				<input
+					ref={(el) => { this.firstName = el; }}
+					type="text"
+					placeholder="First"
+				/>
+				<input
+					ref={(el) => { this.lastName = el; }}
+					type="text"
+					placeholder="Last"
+				/>
+				<input
+					type="submit"
+					value="Join the Discussion"
+				/>
+			</form>
+		);
+	}
+
+	onSubmit = (e) => {
+		e.preventDefault();
+
+		const firstName = this.firstName.value.trim();
+		const lastName = this.lastName.value.trim();
+
+		this.props.setUser(firstName, lastName);
+		this.props.addAuthor(firstName, lastName);
+	}
 }
 
 export default graphql(gql`
@@ -49,11 +42,11 @@ export default graphql(gql`
     }
   }
 `, {
-  props: ({ ownProps: { setAuthorId }, mutate }) => ({
-    addAuthor(firstName, lastName) {    
-      mutate({ variables: { firstName, lastName } })
-      .then(({ data: { newAuthor: { id } }}) => setAuthorId(id))
-      .catch((err) => console.log('ERROR:', err));
-    }
-  }),
-})(AddPost);
+		props: ({ ownProps: { setAuthorId }, mutate }) => ({
+			addAuthor(firstName, lastName) {
+				mutate({ variables: { firstName, lastName } })
+					.then(({ data: { newAuthor: { id } } }) => setAuthorId(id))
+					.catch((err) => console.log('ERROR:', err));
+			}
+		}),
+	})(AddPost);

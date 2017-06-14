@@ -11,9 +11,7 @@ export default graphql(gql`
   }
 `)(({
   mutate,
-  postId,
+		postId,
 }) => (
-  <button onClick={() => mutate({ variables: { postId } })}>
-    Upvote
-  </button>
-));
+			<button onClick={() => mutate({ variables: { postId } })}>Upvote</button>
+		));

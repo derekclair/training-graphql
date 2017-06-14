@@ -58,7 +58,7 @@ export default {
 		newPost(post) { return post; },
 	},
 	Author: {
-		posts(author) {
+		posts: (author) => {
 			return filter(posts, { authorId: author.id });
 		},
 	},
