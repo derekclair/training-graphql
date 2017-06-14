@@ -1,0 +1,185 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "sourceType": "module",
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "babel",
+    "flowtype-errors",
+    "graphql",
+    "import",
+    "jsx-a11y",
+    "react",
+    "flowtype"
+  ],
+  "rules": {
+    "indent": [
+      1,
+      "tab",
+      {
+        "VariableDeclarator": {
+          "var": 2,
+          "let": 2,
+          "const": 3
+        }
+      }
+    ],
+    "arrow-body-style": 0,
+    "arrow-parens": [
+      2,
+      "always",
+      {
+        "requireForBlockBody": false
+      }
+    ],
+    "brace-style": [
+      2,
+      "stroustrup",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "camelcase": 0,
+    "class-methods-use-this": 1,
+    "comma-dangle": [
+      1,
+      {
+        "arrays": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "ignore",
+        // "objects": "never",
+        // "functions": "always-multiline",
+        "imports": "always-multiline",
+        "objects": "always-multiline"
+      }
+    ],
+    "eol-last": 2,
+    "func-names": 0,
+    // _________________________________________________________________ graphql
+    // "graphql/template-strings": [
+    // 	2,
+    // 	{
+    // 		"env": "literal",
+    // 		// "schemaJsonFilepath": "src/schema.graphql"
+    // 		"schemaJsonFilepath": "schema.graphql"
+    // 	}
+    // ],
+    // __________________________________________________________________ import
+    "import/extensions": 0,
+    "import/no-absolute-path": 0,
+    "import/no-extraneous-dependencies": 0,
+    // ________________________________________________________________ jsx-a11y
+    "jsx-a11y/no-static-element-interactions": 1,
+    "jsx-a11y/label-has-for": 1,
+    "max-len": [
+      0,
+      80,
+      2,
+      {
+        "ignoreUrls": true,
+        "ignorePattern": "['\"]",
+        "ignoreComments": true,
+        "ignoreTrailingComments": true
+      }
+    ],
+    "no-mixed-spaces-and-tabs": [
+      2,
+      "smart-tabs"
+    ],
+    "no-multi-spaces": [
+      2,
+      {
+        "exceptions": {
+          "ImportDeclaration": true,
+          "VariableDeclarator": true
+        }
+      }
+    ],
+    "no-multiple-empty-lines": 1,
+    "no-plusplus": 0,
+    "no-tabs": 0,
+    "no-trailing-spaces": [
+      2,
+      {
+        "skipBlankLines": true
+      }
+    ],
+    "no-unused-vars": [
+      2,
+      {
+        "vars": "local",
+        "args": "after-used"
+      }
+    ],
+    "prefer-arrow-callback": 0,
+    // ___________________________________________________________________ react
+    "react/jsx-closing-bracket-location": [
+      1,
+      "line-aligned"
+    ],
+    "react/jsx-equals-spacing": 1,
+    "react/jsx-indent": [
+      2,
+      "tab"
+    ],
+    "react/jsx-indent-props": [
+      0,
+      "tab"
+    ],
+    "react/jsx-max-props-per-line": [
+      1,
+      {
+        "maximum": 2,
+        "when": "multiline"
+      }
+    ],
+    "react/jsx-no-bind": [
+      1,
+      {
+        "allowBind": true,
+        "allowArrowFunctions": true,
+        "ignoreRefs": true
+      }
+    ],
+    "react/jsx-uses-react": 1,
+    "react/no-array-index-key": 1,
+    "react/no-string-refs": 2,
+    "react/no-unused-prop-types": 1,
+    "react/prop-types": [
+      0
+    ],
+    "react/require-default-props": 1,
+    "react/sort-comp": [
+      1,
+      {
+        "order": [
+          "type-annotations",
+          "static-methods",
+          "lifecycle",
+          "rendering",
+          "/^on.+$/",
+          "everything-else"
+        ],
+        "groups": {
+          "rendering": [
+            "/^render.+$/",
+            "render"
+          ]
+        }
+      }
+    ],
+    "spaced-comment": 0
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
+  }
+}

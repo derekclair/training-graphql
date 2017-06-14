@@ -1,0 +1,21 @@
+{
+	"passPerPreset": true,
+	"plugins": [
+		[
+			"inline-import",
+			{
+				"extensions": [
+					".graphql"
+				]
+			}
+		],
+		"syntax-flow"
+	],
+	"presets": [
+		"env",
+		"react",
+		"es2015",
+		"stage-0"
+	],
+	"retainLines": true
+}
